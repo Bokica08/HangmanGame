@@ -126,7 +126,7 @@ public checkLetter() {
       if(this.wrong==6)
       {
         this.endDisplay("You Lost")
-  
+        
       }
     }
     this.wordShown=this.wordHidden.join("")
@@ -138,11 +138,10 @@ public checkLetter() {
 public endDisplay(str:string) {
   this.divLetters.hidden=true
   alert(str)
- var divF=document.getElementById("firstDiv")
- var h3=document.createElement("h1")
- h3.innerText=str
- divF?.appendChild(h3)
-
+  var divF=document.getElementById("firstDiv")
+  var h3=document.createElement("h1")
+  h3.innerText=str
+  divF?.appendChild(h3)
 }
 public reload()
 {
