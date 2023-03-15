@@ -83,8 +83,6 @@ export class HangmanComponent {
     }
     }
    this.wordShown=this.wordHidden.join("")
-    
-    
   }
   
   
@@ -97,8 +95,6 @@ public putClickEvent() {
       this.klik(this.buttons[i])
 
     });
-
-    
   }
 }
 public checkLetter() {
@@ -114,14 +110,17 @@ public checkLetter() {
         if(j==i)
         {
         this.wordHidden[i]=this.letter
-          console.log("here");
         }
       }
       }
     }
     if(flag==0)
     {
+      console.log(this.wrong);
+      
       this.wrong++
+      console.log(this.wrong);
+      
       this.drawMan()
       if(this.wrong==6)
       {
@@ -139,13 +138,27 @@ public endDisplay(str:string) {
   this.divLetters.hidden=true
   alert(str)
   var divF=document.getElementById("firstDiv")
-  var h3=document.createElement("h1")
-  h3.innerText=str
-  divF?.appendChild(h3)
+  var h1=document.createElement("h1")
+  this.btn=h1
+  h1.innerText=str
+  divF?.appendChild(h1)
 }
 public reload()
 {
-  window.location.reload()
+  this.makeHidden()
+  this.divLetters.hidden=false
+  for(let i=0;i<this.buttons.length;i++)
+  {
+    this.buttons[i].disabled=false
+  }  
+  this.wrong=0
+  document.getElementById("head")?.setAttribute("display","none")
+  document.getElementById("body")?.setAttribute("display","none")
+  document.getElementById("leftArm")?.setAttribute("display","none")
+  document.getElementById("rightArm")?.setAttribute("display","none")
+  document.getElementById("leftLeg")?.setAttribute("display","none")
+  document.getElementById("rightLeg")?.setAttribute("display","none")
+  document.getElementById("firstDiv")?.removeChild(this.btn)
 }
 public drawMan() {
   switch(this.wrong) {
